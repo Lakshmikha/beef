@@ -19,8 +19,9 @@ const EpiComponent = () => {
     }, []);
 
     const handleEpisodeClick = (episodeId) => {
-        navigate(`/episode/${episodeId}`); 
+        window.open(`/episodeDetails?episodeId=${episodeId}`, '_blank');
     };
+    
 
 
     return (

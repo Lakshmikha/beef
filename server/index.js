@@ -14,6 +14,14 @@ app.get('/api/episodes', async (req,res) => {
     res.json(episodes)
 })
 
+app.get('/api/episodes/:id', async (req, res) => {
+    
+        const episode = await Episode.findById(req.params.id);
+        if (!episode) return res.status(404).json({ message: 'Episode not found' });
+        res.json(episode);
+    } 
+)
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
